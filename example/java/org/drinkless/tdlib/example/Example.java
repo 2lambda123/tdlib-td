@@ -6,6 +6,7 @@
 //
 package org.drinkless.tdlib.example;
 
+import io.github.pixee.security.BoundedLineReader;
 import org.drinkless.tdlib.Client;
 import org.drinkless.tdlib.TdApi;
 
@@ -195,7 +196,7 @@ public final class Example {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String str = "";
         try {
-            str = reader.readLine();
+            str = BoundedLineReader.readLine(reader, 5_000_000);
         } catch (IOException e) {
             e.printStackTrace();
         }
